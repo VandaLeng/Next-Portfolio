@@ -61,18 +61,18 @@ export const navigationItems = [
  */
 export const experienceData = [
   {
-    title: "Software Developer Intern",
-    company: "Tech Company",
-    period: "2024 - Present",
-    description: "Developing web applications using React, Next.js, and TypeScript. Working on real-world projects with a team of developers.",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    title: "Odoo backend Developer Intern",
+    company: "Biz_Solution",
+    period: "2025 - Present",
+    description: "Developing System modules and customizing Odoo ERP solutions for clients. Collaborating with the team to deliver efficient backend functionalities.",
+    skills: ["Odoo", "Gitlab", "Postgrsql", "Vim", "Python", "OOP "],
   },
   {
     title: "Web Development Student",
     company: "Passerelles numériques Cambodia",
     period: "2024 - 2025",
     description: "Learning full-stack web development, including frontend and backend technologies. Building projects with classmates and mentors.",
-    skills: ["HTML", "CSS", "JavaScript", "PHP", "Laravel"],
+    skills: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Vue.js", "OOP", "React", "MySQL", "Node.js", "GIT"],
   },
   {
     title: "Freelance Developer",
