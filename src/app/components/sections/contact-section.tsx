@@ -73,19 +73,12 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
           }`}>
             Get In Touch
           </h2>
-          <p className={`text-sm ${
-            isDarkMode ? 'text-gray-400' : 'text-gray-600'
-          }`}>
-            Have a project in mind? Let's work together!
-          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div className="space-y-4">
-            <h3 className={`text-lg font-bold mb-4 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>Contact Information</h3>
+            
 
             {/* Email Card */}
             <div className={`p-4 rounded-xl border transition-all duration-300 hover:scale-105 group ${
@@ -195,9 +188,6 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
 
           {/* Contact Form */}
           <div>
-            <h3 className={`text-lg font-bold mb-4 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>Send Me a Message</h3>
 
             <form onSubmit={handleSubmit} className={`p-6 rounded-xl border space-y-4 ${
               isDarkMode 
