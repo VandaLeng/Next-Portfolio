@@ -2,7 +2,16 @@
 
 import { useState, useEffect } from "react"
 import { Home, User, Code, Briefcase, GraduationCap, FolderOpen, MessageSquare, Menu, X, Sun, Moon } from "lucide-react"
-import { navigationItems } from "@/app/lib/utils"
+
+const navigationItems = [
+  { id: "home", label: "Home", icon: "home" },
+  { id: "about", label: "About", icon: "user" },
+  { id: "skills", label: "Skills", icon: "code" },
+  { id: "experience", label: "Experience", icon: "briefcase" },
+  { id: "education", label: "Education", icon: "graduation-cap" },
+  { id: "projects", label: "Projects", icon: "folder" },
+  { id: "contact", label: "Contact", icon: "message" },
+]
 
 /**
  * RIGHT SIDEBAR COMPONENT
@@ -79,14 +88,17 @@ export default function RightSidebar({
       {/* Mobile Menu Toggle Button */}
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="
+        className={`
           lg:hidden fixed top-6 right-6 z-50 
           w-12 h-12 rounded-full 
-          bg-blue-600 hover:bg-blue-700 
           flex items-center justify-center 
-          shadow-lg shadow-blue-500/50
-          transition-all duration-300
-        "
+          shadow-lg transition-all duration-300
+          ${
+            darkMode
+              ? "bg-blue-600 hover:bg-blue-700 shadow-blue-500/50"
+              : "bg-red-600 hover:bg-red-700 shadow-red-500/50"
+          }
+        `}
         aria-label="Toggle navigation menu"
       >
         {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -96,58 +108,89 @@ export default function RightSidebar({
       <aside
         className={`
           fixed top-0 right-0 h-screen w-72
-          bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-xl 
-          border-l border-blue-500/20 
+          backdrop-blur-xl 
           z-40 overflow-y-auto 
-          transition-transform duration-300
+          transition-all duration-300
           ${mobileMenuOpen ? "translate-x-0" : "translate-x-full lg:translate-x-0"}
+          ${darkMode ? "bg-slate-900/95 border-l border-blue-500/20" : "bg-white/95 border-l border-red-200"}
         `}
       >
         <div className="p-5 flex flex-col h-full">
-          {/* Dark/Light Mode Toggle */}
           <div className="mb-6">
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-slate-800/50 border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300 group"
+              className={`
+                w-full flex items-center justify-between px-4 py-3 rounded-lg 
+                border transition-all duration-300 group relative overflow-hidden
+                ${
+                  darkMode
+                    ? "bg-slate-800/50 border-blue-500/20 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/20"
+                    : "bg-red-50 border-red-200 hover:border-red-400 hover:shadow-lg hover:shadow-red-300/30"
+                }
+              `}
             >
-              <span className="text-sm font-medium text-gray-300">Theme</span>
+              <span className={`text-sm font-medium ${darkMode ? "text-gray-300" : "text-gray-700"}`}>Theme</span>
               <div className="flex items-center gap-2">
                 {darkMode ? (
                   <>
-                    <Moon size={18} className="text-blue-400" />
+                    <Moon size={18} className="text-blue-400 animate-pulse-glow" />
                     <span className="text-xs text-gray-400">Dark</span>
                   </>
                 ) : (
                   <>
-                    <Sun size={18} className="text-yellow-400" />
-                    <span className="text-xs text-gray-400">Light</span>
+                    <Sun size={18} className="text-red-600 animate-pulse-glow" />
+                    <span className="text-xs text-gray-600">Light</span>
                   </>
                 )}
               </div>
+              <div
+                className={`
+                absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10
+                ${
+                  darkMode
+                    ? "bg-gradient-to-r from-blue-500/10 to-cyan-500/10"
+                    : "bg-gradient-to-r from-red-500/10 to-orange-500/10"
+                }
+              `}
+              ></div>
             </button>
           </div>
 
           {/* Scroll Progress Indicator */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-xs uppercase tracking-wider text-gray-500">Progress</p>
-              <span className="text-xs font-mono text-blue-400">{Math.round(scrollProgress)}%</span>
+              <p className={`text-xs uppercase tracking-wider ${darkMode ? "text-gray-500" : "text-gray-600"}`}>
+                Progress
+              </p>
+              <span className={`text-xs font-mono ${darkMode ? "text-blue-400" : "text-red-600"}`}>
+                {Math.round(scrollProgress)}%
+              </span>
             </div>
 
-            <div className="relative h-2 bg-slate-800 rounded-full overflow-hidden">
+            <div className={`relative h-2 rounded-full overflow-hidden ${darkMode ? "bg-slate-800" : "bg-red-100"}`}>
               <div
-                className="absolute left-0 top-0 h-full bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500 transition-all duration-300 rounded-full"
+                className={`absolute left-0 top-0 h-full transition-all duration-300 rounded-full ${
+                  darkMode
+                    ? "bg-gradient-to-r from-blue-500 via-cyan-500 to-purple-500"
+                    : "bg-gradient-to-r from-red-500 via-orange-500 to-red-600"
+                }`}
                 style={{ width: `${scrollProgress}%` }}
               />
             </div>
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent mb-6"></div>
+          <div
+            className={`w-full h-px mb-6 ${
+              darkMode
+                ? "bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"
+                : "bg-gradient-to-r from-transparent via-red-300/50 to-transparent"
+            }`}
+          ></div>
 
           {/* Navigation Title */}
           <div className="mb-4">
-            <h2 className="text-lg font-bold text-white mb-1">Navigation</h2>
+            <h2 className={`text-lg font-bold mb-1 ${darkMode ? "text-white" : "text-gray-900"}`}>Navigation</h2>
           </div>
 
           {/* Navigation Menu */}
@@ -167,14 +210,22 @@ export default function RightSidebar({
                       group relative overflow-hidden
                       ${
                         isActive
-                          ? "bg-blue-600 text-white shadow-lg shadow-blue-500/50"
-                          : "text-gray-400 hover:bg-slate-800 hover:text-white"
+                          ? darkMode
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-500/50"
+                            : "bg-red-600 text-white shadow-lg shadow-red-500/50"
+                          : darkMode
+                            ? "text-gray-400 hover:bg-slate-800 hover:text-white"
+                            : "text-gray-600 hover:bg-red-50 hover:text-gray-900"
                       }
                     `}
                   >
                     {/* Active indicator line */}
                     {isActive && (
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-cyan-400 animate-pulse-glow"></div>
+                      <div
+                        className={`absolute left-0 top-0 bottom-0 w-1 animate-pulse-glow ${
+                          darkMode ? "bg-cyan-400" : "bg-white"
+                        }`}
+                      ></div>
                     )}
 
                     {/* Icon */}

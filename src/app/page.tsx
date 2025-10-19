@@ -15,6 +15,8 @@ import EducationSection from "./components/sections/education-section"
 import ProjectsSection from "./components/sections/projects-section"
 import ContactSection from "./components/sections/contact-section"
 
+import CodingBackground from "./components/animations/coding-background"
+
 /**
  * MAIN PAGE COMPONENT
  *
@@ -28,6 +30,13 @@ export default function HomePage() {
   const [activeSection, setActiveSection] = useState("home")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(true)
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme) {
+      setDarkMode(savedTheme === "dark")
+    }
+  }, [])
 
   // Track active section based on scroll position
   useEffect(() => {
@@ -60,29 +69,40 @@ export default function HomePage() {
     }
   }, [mobileMenuOpen])
 
-  // Apply dark mode class to html element
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark")
+      document.documentElement.classList.remove("light")
+      localStorage.setItem("theme", "dark")
     } else {
       document.documentElement.classList.remove("dark")
+      document.documentElement.classList.add("light")
+      localStorage.setItem("theme", "light")
     }
   }, [darkMode])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 text-white transition-colors duration-300">
+    <div
+      className={`min-h-screen transition-colors duration-500 ${
+        darkMode
+          ? "bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white"
+          : "bg-gradient-to-br from-red-50 via-white to-red-100 text-gray-900"
+      }`}
+    >
+      <CodingBackground isDarkMode={darkMode} />
+
       {/* Left Sidebar - Profile & Contact Info */}
       <LeftSidebar mobileMenuOpen={mobileMenuOpen} darkMode={darkMode} />
 
       {/* Main Content Area */}
-      <main className="lg:ml-80 lg:mr-72 min-h-screen">
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <EducationSection />
-        <ProjectsSection />
-        <ContactSection />
+      <main className="lg:ml-80 lg:mr-72 min-h-screen relative z-10">
+        <HeroSection isDarkMode={darkMode} />
+        <AboutSection isDarkMode={darkMode} />
+        <SkillsSection isDarkMode={darkMode} />
+        <ExperienceSection isDarkMode={darkMode} />
+        <EducationSection isDarkMode={darkMode} />
+        <ProjectsSection isDarkMode={darkMode} />
+        <ContactSection isDarkMode={darkMode} />
       </main>
 
       {/* Right Sidebar - Navigation Menu */}
