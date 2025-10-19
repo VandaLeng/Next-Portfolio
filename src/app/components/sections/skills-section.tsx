@@ -17,7 +17,7 @@ const skillsData = [
   {
     name: "CSS",
     description: "Styling & layout",
-    iconUrl: "https://cdn.jsdelivr.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
     colorRgb: "59, 130, 246",
     category: "Frontend",
     level: "Expert",
@@ -251,7 +251,7 @@ const midPoint = Math.ceil(skillsData.length / 2)
 const leftCircle = skillsData.slice(0, midPoint)
 const rightCircle = skillsData.slice(midPoint)
 
-export default function SkillsSection() {
+export default function SkillsSection({ isDarkMode = true }: { isDarkMode?: boolean }) {
   const sectionRef = useRef<HTMLElement>(null)
   const [selectedSkill, setSelectedSkill] = React.useState<(typeof skillsData)[0] | null>(null)
 
@@ -292,7 +292,13 @@ export default function SkillsSection() {
         {/* Section Header */}
         <div className="mb-16 text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400">
+            <span
+              className={`text-transparent bg-clip-text ${
+                isDarkMode
+                  ? "bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400"
+                  : "bg-gradient-to-r from-red-600 via-orange-500 to-pink-500"
+              }`}
+            >
               My Technical Stack
             </span>
           </h2>
@@ -322,12 +328,28 @@ export default function SkillsSection() {
                   }
                   onClick={() => handleSkillClick(skill)}
                 >
-                  <div className="img backdrop-blur-md bg-slate-900/90 p-6 flex flex-col items-center justify-center gap-3 cursor-pointer hover:bg-slate-800/90 transition-colors">
-                    <div className="w-16 h-16 rounded-xl bg-white/10 p-3 flex items-center justify-center">
-                      <img src={skill.iconUrl} alt={skill.name} className="w-full h-full object-contain" />
+                  <div
+                    className={`img backdrop-blur-md p-6 flex flex-col items-center justify-center gap-3 cursor-pointer transition-colors ${
+                      isDarkMode ? "bg-slate-900/90 hover:bg-slate-800/90" : "bg-white/90 hover:bg-red-50/90"
+                    }`}
+                  >
+                    <div
+                      className={`w-16 h-16 rounded-xl p-3 flex items-center justify-center ${
+                        isDarkMode ? "bg-white/10" : "bg-red-100/50"
+                      }`}
+                    >
+                      <img
+                        src={skill.iconUrl || "/placeholder.svg"}
+                        alt={skill.name}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                    <h3 className="text-white font-bold text-lg text-center">{skill.name}</h3>
-                    <p className="text-gray-300 text-xs text-center">{skill.description}</p>
+                    <h3 className={`font-bold text-lg text-center ${isDarkMode ? "text-cyan-400" : "text-red-600"}`}>
+                      {skill.name}
+                    </h3>
+                    <p className={`text-xs text-center ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
+                      {skill.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -335,10 +357,18 @@ export default function SkillsSection() {
 
             {/* Center Text for Left Circle */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 text-center pointer-events-none">
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400/20 via-cyan-400/20 to-purple-400/20">
+              <div
+                className={`text-6xl font-bold text-transparent bg-clip-text ${
+                  isDarkMode
+                    ? "bg-gradient-to-br from-blue-400/20 via-cyan-400/20 to-purple-400/20"
+                    : "bg-gradient-to-br from-red-400/20 via-orange-400/20 to-pink-400/20"
+                }`}
+              >
                 {leftCircle.length}
               </div>
-              <div className="text-lg font-semibold text-gray-600 mt-1">Skills</div>
+              <div className={`text-lg font-semibold mt-1 ${isDarkMode ? "text-gray-600" : "text-gray-400"}`}>
+                Skills
+              </div>
             </div>
           </div>
 
@@ -364,12 +394,28 @@ export default function SkillsSection() {
                   }
                   onClick={() => handleSkillClick(skill)}
                 >
-                  <div className="img backdrop-blur-md bg-slate-900/90 p-6 flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-slate-800/90 transition-colors">
-                    <div className="w-16 h-16 rounded-xl bg-white/10 p-3 flex items-center justify-center">
-                      <img src={skill.iconUrl} alt={skill.name} className="w-full h-full object-contain" />
+                  <div
+                    className={`img backdrop-blur-md p-6 flex flex-col items-center justify-center gap-1 cursor-pointer transition-colors ${
+                      isDarkMode ? "bg-slate-900/90 hover:bg-slate-800/90" : "bg-white/90 hover:bg-red-50/90"
+                    }`}
+                  >
+                    <div
+                      className={`w-16 h-16 rounded-xl p-3 flex items-center justify-center ${
+                        isDarkMode ? "bg-white/10" : "bg-red-100/50"
+                      }`}
+                    >
+                      <img
+                        src={skill.iconUrl || "/placeholder.svg"}
+                        alt={skill.name}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
-                    <h3 className="text-white font-bold text-lg text-center">{skill.name}</h3>
-                    <p className="text-gray-300 text-xs text-center">{skill.description}</p>
+                    <h3 className={`font-bold text-lg text-center ${isDarkMode ? "text-cyan-400" : "text-red-600"}`}>
+                      {skill.name}
+                    </h3>
+                    <p className={`text-xs text-center ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
+                      {skill.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -377,10 +423,18 @@ export default function SkillsSection() {
 
             {/* Center Text for Right Circle */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 text-center pointer-events-none">
-              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-400/20 via-pink-400/20 to-red-400/20">
+              <div
+                className={`text-6xl font-bold text-transparent bg-clip-text ${
+                  isDarkMode
+                    ? "bg-gradient-to-br from-purple-400/20 via-pink-400/20 to-red-400/20"
+                    : "bg-gradient-to-br from-orange-400/20 via-red-400/20 to-pink-400/20"
+                }`}
+              >
                 {rightCircle.length}
               </div>
-              <div className="text-lg font-semibold text-gray-600 mt-1">Skills</div>
+              <div className={`text-lg font-semibold mt-1 ${isDarkMode ? "text-gray-600" : "text-gray-400"}`}>
+                Skills
+              </div>
             </div>
           </div>
         </div>
@@ -393,7 +447,9 @@ export default function SkillsSection() {
           onClick={closeModal}
         >
           <div
-            className="bg-slate-900 rounded-2xl max-w-2xl w-full p-8 relative border-2 shadow-2xl"
+            className={`rounded-2xl max-w-2xl w-full p-8 relative border-2 shadow-2xl ${
+              isDarkMode ? "bg-slate-900" : "bg-white"
+            }`}
             style={{
               borderColor: `rgba(${selectedSkill.colorRgb}, 0.6)`,
               boxShadow: `0 0 60px rgba(${selectedSkill.colorRgb}, 0.4)`,
@@ -403,7 +459,9 @@ export default function SkillsSection() {
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold transition-colors"
+              className={`absolute top-4 right-4 text-3xl font-bold transition-colors ${
+                isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"
+              }`}
             >
               ×
             </button>
@@ -417,10 +475,16 @@ export default function SkillsSection() {
                   border: `2px solid rgba(${selectedSkill.colorRgb}, 0.6)`,
                 }}
               >
-                <img src={selectedSkill.iconUrl} alt={selectedSkill.name} className="w-full h-full object-contain" />
+                <img
+                  src={selectedSkill.iconUrl || "/placeholder.svg"}
+                  alt={selectedSkill.name}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
-                <h2 className="text-4xl font-bold text-white mb-2">{selectedSkill.name}</h2>
+                <h2 className={`text-4xl font-bold mb-2 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                  {selectedSkill.name}
+                </h2>
                 <p className="text-lg font-semibold" style={{ color: `rgb(${selectedSkill.colorRgb})` }}>
                   {selectedSkill.description}
                 </p>
@@ -429,24 +493,50 @@ export default function SkillsSection() {
 
             {/* Details Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-6">
-              <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                <div className="text-gray-400 text-sm mb-1">Category</div>
-                <div className="text-white font-semibold text-lg">{selectedSkill.category}</div>
+              <div
+                className={`rounded-xl p-4 border ${
+                  isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-red-50/50 border-red-200"
+                }`}
+              >
+                <div className={`text-sm mb-1 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>Category</div>
+                <div className={`font-semibold text-lg ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                  {selectedSkill.category}
+                </div>
               </div>
-              <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                <div className="text-gray-400 text-sm mb-1">Skill Level</div>
-                <div className="text-white font-semibold text-lg">{selectedSkill.level}</div>
+              <div
+                className={`rounded-xl p-4 border ${
+                  isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-red-50/50 border-red-200"
+                }`}
+              >
+                <div className={`text-sm mb-1 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>Skill Level</div>
+                <div className={`font-semibold text-lg ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                  {selectedSkill.level}
+                </div>
               </div>
-              <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                <div className="text-gray-400 text-sm mb-1">Experience</div>
-                <div className="text-white font-semibold text-lg">{selectedSkill.experience}</div>
+              <div
+                className={`rounded-xl p-4 border ${
+                  isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-red-50/50 border-red-200"
+                }`}
+              >
+                <div className={`text-sm mb-1 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>Experience</div>
+                <div className={`font-semibold text-lg ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                  {selectedSkill.experience}
+                </div>
               </div>
             </div>
 
             {/* Detailed Description */}
-            <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
-              <h3 className="text-xl font-bold text-white mb-3">Key Skills & Technologies</h3>
-              <p className="text-gray-300 leading-relaxed">{selectedSkill.details}</p>
+            <div
+              className={`rounded-xl p-6 border ${
+                isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-red-50/50 border-red-200"
+              }`}
+            >
+              <h3 className={`text-xl font-bold mb-3 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                Key Skills & Technologies
+              </h3>
+              <p className={`leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
+                {selectedSkill.details}
+              </p>
             </div>
           </div>
         </div>
