@@ -355,21 +355,6 @@ export default function SkillsSection({ isDarkMode = true }: { isDarkMode?: bool
               ))}
             </div>
 
-            {/* Center Text for Left Circle */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 text-center pointer-events-none">
-              <div
-                className={`text-6xl font-bold text-transparent bg-clip-text ${
-                  isDarkMode
-                    ? "bg-gradient-to-br from-blue-400/20 via-cyan-400/20 to-purple-400/20"
-                    : "bg-gradient-to-br from-red-400/20 via-orange-400/20 to-pink-400/20"
-                }`}
-              >
-                {leftCircle.length}
-              </div>
-              <div className={`text-lg font-semibold mt-1 ${isDarkMode ? "text-gray-600" : "text-gray-400"}`}>
-                Skills
-              </div>
-            </div>
           </div>
 
           {/* Right Circle */}
@@ -419,22 +404,6 @@ export default function SkillsSection({ isDarkMode = true }: { isDarkMode?: bool
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Center Text for Right Circle */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 text-center pointer-events-none">
-              <div
-                className={`text-6xl font-bold text-transparent bg-clip-text ${
-                  isDarkMode
-                    ? "bg-gradient-to-br from-purple-400/20 via-pink-400/20 to-red-400/20"
-                    : "bg-gradient-to-br from-orange-400/20 via-red-400/20 to-pink-400/20"
-                }`}
-              >
-                {rightCircle.length}
-              </div>
-              <div className={`text-lg font-semibold mt-1 ${isDarkMode ? "text-gray-600" : "text-gray-400"}`}>
-                Skills
-              </div>
             </div>
           </div>
         </div>
