@@ -77,12 +77,12 @@ export const experienceData = [
     skills: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Vue.js", "OOP", "React", "MySQL", "Node.js", "GIT"],
   },
   {
-    title: "Freelance Developer",
-    company: "Self-Employed",
-    period: "2023 - 2024",
+    title: "High School Diploma",
+    company: "Bak Touk High School",
+    period: "2017 - 2023",
     description:
-      "Created websites for small businesses and individuals. Gained experience in client communication and project management.",
-    skills: ["WordPress", "JavaScript", "Bootstrap", "jQuery"],
+      " Completed secondary education with a focus on mathematics, science, and leadership activities, laying a strong foundation for technical studies.",
+    skills: ["Khmer", "Math", "History", "society", "English"],
   },
 ]
 
@@ -115,52 +115,97 @@ export const educationData = [
     achievements: ["Social Sciences", "Critical Thinking", "Community Development"],
   },
 ]
+// @/app/lib/utils.ts (or .js)
 
-/**
- * Projects Data
- */
 export const projectsData = [
   {
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack e-commerce platform with payment integration, product management, and user authentication.",
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vandaleng/ecommerce",
+    title: "Email Automation System",
+    description: "Applied algorithm concepts in Python to design and implement an automated email sending system. Used logical thinking and calculations to structure workflows for handling email automation efficiently. Worked with Python modules such as smtplib, email, mimetypes, and os to send emails with file and image attachments. Designed the system to reduce manual work and save time by sending multiple emails automatically. Implemented sender credentials, receiver setup, and image embedding for professional communication.",
+    role: "Team Member",
+    duration: "Nov 11 - Nov 20, 2024",
+    tags: ["Python", "Automation", "Email", "Algorithm"],
+    liveUrl: "https://github.com/vandaleng/email-automation",
+    githubUrl: "https://github.com/vandaleng/email-automation",
+    imageUrl: "/assets/images/email-automation.png",
+    teamMembers: [
+      {
+        name: "Your Name",
+        role: "Team Member",
+        imageUrl: "/assets/images/your-photo.jpg"
+      }
+    ],
+    tools: [
+      { name: "Python", icon: "fab fa-python" },
+      { name: "Git", icon: "fab fa-git-alt" }
+    ]
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
-    tags: ["React", "Node.js", "Socket.io", "MongoDB"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vandaleng/taskapp",
+    title: "Movie Management System",
+    description: "Built a role-based Movie Management System applying core OOP principles: abstraction, polymorphism, inheritance, and encapsulation. Implemented role-specific access control for staff, users, and admins to ensure secure operations. Used TypeScript and JavaScript to handle dynamic processes and system logic. Designed UML diagrams (class, use-case, and sequence diagrams) to map out system architecture and class interactions. Created features for movie listing, booking, staff management, and admin monitoring.",
+    role: "Developer",
+    duration: "Jan 12 - May 2, 2025",
+    tags: ["TypeScript", "OOP", "JavaScript", "UML"],
+    liveUrl: "https://github.com/vandaleng/movie-system",
+    githubUrl: "https://github.com/vandaleng/movie-system",
+    imageUrl: "/assets/images/movie-system.png",
+    teamMembers: [
+      {
+        name: "Your Name",
+        role: "Developer",
+        imageUrl: "/assets/images/your-photo.jpg"
+      }
+    ],
+    tools: [
+      { name: "TypeScript", icon: "fab fa-js" },
+      { name: "JavaScript", icon: "fab fa-js" },
+      { name: "Git", icon: "fab fa-git-alt" }
+    ]
   },
   {
-    title: "Portfolio Website",
-    description: "A stunning 3D portfolio website with interactive animations and modern design.",
-    tags: ["Next.js", "Three.js", "Framer Motion", "Tailwind"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vandaleng/portfolio",
+    title: "Virtual Company One - Management System",
+    description: "Built a management system to handle employee leave requests with proper workflows and database integration. Applied PHP with MVC structure to organize code for scalability and maintainability. Designed and managed a relational database for storing employee, product, and user data securely. Developed an e-commerce website with separate user and admin roles for better system control. Implemented key features such as product management, user account creation, and product request submission. Used Jira for task tracking and GitHub for version control, ensuring smooth collaboration and progress monitoring. Worked directly with a real client to gather requirements, present solutions, and deliver updates.",
+    role: "Developer",
+    duration: "Jan 12 - May 2, 2025",
+    tags: ["PHP", "MVC", "MySQL", "E-commerce"],
+    liveUrl: "https://github.com/vandaleng/management-system",
+    githubUrl: "https://github.com/vandaleng/management-system",
+    imageUrl: "/assets/images/management-system.png",
+    teamMembers: [
+      {
+        name: "Your Name",
+        role: "Developer",
+        imageUrl: "/assets/images/your-photo.jpg"
+      }
+    ],
+    tools: [
+      { name: "PHP", icon: "fab fa-php" },
+      { name: "MySQL", icon: "fas fa-database" },
+      { name: "Jira", icon: "fab fa-jira" },
+      { name: "Git", icon: "fab fa-git-alt" }
+    ]
   },
   {
-    title: "Weather Dashboard",
-    description: "A beautiful weather dashboard with real-time data, forecasts, and interactive maps.",
-    tags: ["Vue.js", "API Integration", "Charts", "CSS"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vandaleng/weather",
-  },
-  {
-    title: "Social Media App",
-    description: "A social media platform with posts, comments, likes, and user profiles.",
-    tags: ["React", "Laravel", "MySQL", "Bootstrap"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vandaleng/social",
-  },
-  {
-    title: "Blog Platform",
-    description: "A modern blog platform with markdown support, categories, and search functionality.",
-    tags: ["Next.js", "MDX", "Prisma", "PostgreSQL"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/vandaleng/blog",
-  },
+    title: "E-commerce Farmer System",
+    description: "Developed login and logout authentication using API endpoints tested with Postman to ensure secure user access. Built the system with Laravel (backend) and React.js (frontend), integrating a MySQL relational database. Managed role-based access control for Farmers, Admins, Users, and Buyers to ensure proper permissions. Implemented CRUD operations for products, orders, and user management. Integrated features for product listing, order tracking, and request submission for farmers and buyers. Optimized database relationships for efficient queries and data consistency. Ensured API security using token-based authentication and validation. Collaborated with frontend developers to connect APIs with React.js components and improve user experience.",
+    role: "Backend Developer",
+    duration: "July 1 - Aug 30, 2025",
+    tags: ["Laravel", "React", "MySQL", "API", "Backend"],
+    liveUrl: "https://github.com/vandaleng/ecommerce-farmer",
+    githubUrl: "https://github.com/vandaleng/ecommerce-farmer",
+    imageUrl: "/assets/images/ecommerce-farmer.png",
+    teamMembers: [
+      {
+        name: "Your Name",
+        role: "Backend Developer",
+        imageUrl: "/assets/images/your-photo.jpg"
+      }
+    ],
+    tools: [
+      { name: "Laravel", icon: "fab fa-laravel" },
+      { name: "React", icon: "fab fa-react" },
+      { name: "MySQL", icon: "fas fa-database" },
+      { name: "PHP", icon: "fab fa-php" },
+      { name: "Postman", icon: "fas fa-flask" }
+    ]
+  }
 ]

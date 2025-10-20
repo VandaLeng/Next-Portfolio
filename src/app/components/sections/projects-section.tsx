@@ -43,7 +43,7 @@ export default function ProjectsSection({ isDarkMode }: ProjectsSectionProps) {
           </h2>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-10">
           {projectsData
             .filter((project) => project != null)
             .map((project, index) => (
