@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface TeamMember {
   name: string
@@ -194,63 +194,89 @@ export default function ProjectCard({ project, index, isDarkMode }: ProjectCardP
                   isDarkMode ? "text-cyan-400" : "text-red-600"
                 }`}
               >
-                Team Members
+                Team Members ({currentMemberIndex + 1}/{project.teamMembers.length})
               </h4>
               
               <div className="relative">
                 <div className={`rounded-lg p-4 ${
                   isDarkMode ? "bg-slate-800/50" : "bg-white"
                 }`}>
-                  <div className="flex flex-col items-center text-center">
-                    <div className={`w-24 h-24 rounded-full overflow-hidden mb-3 border-4 ${
-                      isDarkMode ? "border-blue-500/50" : "border-red-300/50"
-                    }`}>
-                      <img
-                        src={project.teamMembers[currentMemberIndex].imageUrl}
-                        alt={project.teamMembers[currentMemberIndex].name}
-                        className="w-full h-full object-cover"
-                      />
+                  <div className="flex items-center gap-3">
+                    {/* Left Arrow Button */}
+                    {project.teamMembers.length > 1 && (
+                      <button
+                        onClick={prevMember}
+                        className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 ${
+                          isDarkMode
+                            ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/30"
+                            : "bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-300/30"
+                        }`}
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+                    )}
+
+                    {/* Member Card */}
+                    <div className="flex-grow flex flex-col items-center text-center">
+                      <div className={`w-20 h-20 rounded-full overflow-hidden mb-3 border-4 transition-all duration-300 ${
+                        isDarkMode ? "border-blue-500/50" : "border-red-300/50"
+                      }`}>
+                        <img
+                          src={project.teamMembers[currentMemberIndex].imageUrl}
+                          alt={project.teamMembers[currentMemberIndex].name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <p
+                        className={`text-sm font-bold mb-1 ${
+                          isDarkMode ? "text-white" : "text-gray-900"
+                        }`}
+                      >
+                        {project.teamMembers[currentMemberIndex].name}
+                      </p>
+                      <p
+                        className={`text-xs font-medium ${
+                          isDarkMode ? "text-blue-300" : "text-red-600"
+                        }`}
+                      >
+                        {project.teamMembers[currentMemberIndex].role}
+                      </p>
                     </div>
-                    <p
-                      className={`text-sm font-semibold mb-1 ${
-                        isDarkMode ? "text-blue-300" : "text-red-600"
-                      }`}
-                    >
-                      Role: {project.teamMembers[currentMemberIndex].role}
-                    </p>
-                    <p
-                      className={`text-sm ${
-                        isDarkMode ? "text-gray-300" : "text-gray-700"
-                      }`}
-                    >
-                      Name: {project.teamMembers[currentMemberIndex].name}
-                    </p>
+
+                    {/* Right Arrow Button */}
+                    {project.teamMembers.length > 1 && (
+                      <button
+                        onClick={nextMember}
+                        className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 ${
+                          isDarkMode
+                            ? "bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/30"
+                            : "bg-red-500 hover:bg-red-600 text-white shadow-lg shadow-red-300/30"
+                        }`}
+                      >
+                        <ChevronRight size={20} />
+                      </button>
+                    )}
                   </div>
                 </div>
 
-                {/* Navigation Buttons */}
+                {/* Dot Indicators */}
                 {project.teamMembers.length > 1 && (
                   <div className="flex justify-center gap-2 mt-3">
-                    <button
-                      onClick={prevMember}
-                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110 ${
-                        isDarkMode
-                          ? "bg-slate-700 hover:bg-slate-600 text-white"
-                          : "bg-gray-200 hover:bg-gray-300 text-gray-700"
-                      }`}
-                    >
-                      ‹
-                    </button>
-                    <button
-                      onClick={nextMember}
-                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110 ${
-                        isDarkMode
-                          ? "bg-slate-700 hover:bg-slate-600 text-white"
-                          : "bg-gray-200 hover:bg-gray-300 text-gray-700"
-                      }`}
-                    >
-                      ›
-                    </button>
+                    {project.teamMembers.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentMemberIndex(idx)}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          idx === currentMemberIndex
+                            ? isDarkMode
+                              ? "bg-blue-500 w-6"
+                              : "bg-red-500 w-6"
+                            : isDarkMode
+                            ? "bg-slate-600 hover:bg-slate-500"
+                            : "bg-gray-300 hover:bg-gray-400"
+                        }`}
+                      />
+                    ))}
                   </div>
                 )}
               </div>
@@ -268,17 +294,17 @@ export default function ProjectCard({ project, index, isDarkMode }: ProjectCardP
                 Languages & Tools
               </h4>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 gap-3">
                 {project.tools.map((tool, idx) => (
                   <div
                     key={idx}
-                    className={`flex flex-col items-center justify-center p-3 rounded-lg transition-all hover:scale-105 ${
+                    className={`flex flex-col items-center justify-center p-3 rounded-lg transition-all hover:scale-105 hover:-translate-y-1 ${
                       isDarkMode
-                        ? "bg-slate-800/50 hover:bg-slate-700/50"
-                        : "bg-white hover:bg-gray-50"
+                        ? "bg-slate-800/50 hover:bg-slate-700/70 hover:shadow-lg hover:shadow-blue-500/20"
+                        : "bg-white hover:bg-gray-50 hover:shadow-lg hover:shadow-red-300/20"
                     }`}
                   >
-                    <i className={`${getIconComponent(tool.name)} text-2xl mb-2 ${
+                    <i className={`${getIconComponent(tool.name)} text-3xl mb-2 ${
                       tool.name === "HTML" ? "text-orange-500" :
                       tool.name === "CSS" ? "text-blue-500" :
                       tool.name === "JavaScript" || tool.name === "TypeScript" ? "text-yellow-400" :
@@ -289,10 +315,13 @@ export default function ProjectCard({ project, index, isDarkMode }: ProjectCardP
                       tool.name === "Git" ? "text-orange-600" :
                       tool.name === "Node" ? "text-green-500" :
                       tool.name === "MySQL" ? "text-blue-600" :
+                      tool.name === "SASS" ? "text-pink-500" :
+                      tool.name === "Jira" ? "text-blue-600" :
+                      tool.name === "Postman" ? "text-orange-500" :
                       isDarkMode ? "text-gray-400" : "text-gray-600"
                     }`}></i>
                     <span
-                      className={`text-xs font-medium ${
+                      className={`text-xs font-semibold text-center ${
                         isDarkMode ? "text-gray-300" : "text-gray-700"
                       }`}
                     >

@@ -115,8 +115,6 @@ export const educationData = [
     achievements: ["Social Sciences", "Critical Thinking", "Community Development"],
   },
 ]
-// @/app/lib/utils.ts (or .js)
-
 export const projectsData = [
   {
     title: "Email Automation System",
@@ -129,9 +127,19 @@ export const projectsData = [
     imageUrl: "/assets/images/email-automation.png",
     teamMembers: [
       {
-        name: "Your Name",
-        role: "Team Member",
-        imageUrl: "/assets/images/your-photo.jpg"
+        name: "Vandal Eng",
+        role: "Lead Developer",
+        imageUrl: "/assets/images/member1.jpg"
+      },
+      {
+        name: "John Smith",
+        role: "Backend Developer",
+        imageUrl: "/assets/images/member2.jpg"
+      },
+      {
+        name: "Sarah Johnson",
+        role: "Python Specialist",
+        imageUrl: "/assets/images/member3.jpg"
       }
     ],
     tools: [
@@ -150,9 +158,24 @@ export const projectsData = [
     imageUrl: "/assets/images/movie-system.png",
     teamMembers: [
       {
-        name: "Your Name",
-        role: "Developer",
-        imageUrl: "/assets/images/your-photo.jpg"
+        name: "Vandal Eng",
+        role: "Full Stack Developer",
+        imageUrl: "/assets/images/member1.jpg"
+      },
+      {
+        name: "Mike Chen",
+        role: "Frontend Developer",
+        imageUrl: "/assets/images/member4.jpg"
+      },
+      {
+        name: "Lisa Wang",
+        role: "UI/UX Designer",
+        imageUrl: "/assets/images/member5.jpg"
+      },
+      {
+        name: "David Brown",
+        role: "System Architect",
+        imageUrl: "/assets/images/member6.jpg"
       }
     ],
     tools: [
@@ -172,9 +195,29 @@ export const projectsData = [
     imageUrl: "/assets/images/management-system.png",
     teamMembers: [
       {
-        name: "Your Name",
-        role: "Developer",
-        imageUrl: "/assets/images/your-photo.jpg"
+        name: "Vandal Eng",
+        role: "Backend Developer",
+        imageUrl: "/assets/images/member1.jpg"
+      },
+      {
+        name: "Emma Davis",
+        role: "Database Administrator",
+        imageUrl: "/assets/images/member7.jpg"
+      },
+      {
+        name: "Alex Rodriguez",
+        role: "PHP Developer",
+        imageUrl: "/assets/images/member8.jpg"
+      },
+      {
+        name: "Sophie Martin",
+        role: "Project Manager",
+        imageUrl: "/assets/images/member9.jpg"
+      },
+      {
+        name: "Tom Wilson",
+        role: "QA Tester",
+        imageUrl: "/assets/images/member10.jpg"
       }
     ],
     tools: [
@@ -195,9 +238,24 @@ export const projectsData = [
     imageUrl: "/assets/images/ecommerce-farmer.png",
     teamMembers: [
       {
-        name: "Your Name",
+        name: "Vandal Eng",
         role: "Backend Developer",
-        imageUrl: "/assets/images/your-photo.jpg"
+        imageUrl: "/assets/images/member1.jpg"
+      },
+      {
+        name: "Rachel Green",
+        role: "Frontend Developer",
+        imageUrl: "/assets/images/member11.jpg"
+      },
+      {
+        name: "James Anderson",
+        role: "Laravel Specialist",
+        imageUrl: "/assets/images/member12.jpg"
+      },
+      {
+        name: "Olivia Taylor",
+        role: "React Developer",
+        imageUrl: "/assets/images/member13.jpg"
       }
     ],
     tools: [
@@ -205,7 +263,8 @@ export const projectsData = [
       { name: "React", icon: "fab fa-react" },
       { name: "MySQL", icon: "fas fa-database" },
       { name: "PHP", icon: "fab fa-php" },
-      { name: "Postman", icon: "fas fa-flask" }
+      { name: "Postman", icon: "fas fa-flask" },
+      { name: "Git", icon: "fab fa-git-alt" }
     ]
   }
 ]
