@@ -123,22 +123,22 @@ export const projectsData = [
     duration: "Nov 11 - Nov 20, 2024",
     tags: ["Python", "Automation", "Email", "Algorithm"],
     liveUrl: "https://github.com/vandaleng/email-automation",
-    githubUrl: "https://github.com/vandaleng/email-automation",
+    githubUrl: "https://github.com/Leader-Din/algorithm_project",
     imageUrl: "/assets/images/email-automation.png",
     teamMembers: [
       {
-        name: "Vandal Eng",
-        role: "Lead Developer",
+        name: "Vanda leng",
+        role: "Developer",
         imageUrl: "/assets/images/member1.jpg"
       },
       {
-        name: "John Smith",
-        role: "Backend Developer",
+        name: "Leader Din",
+        role: "Team Leader",
         imageUrl: "/assets/images/member2.jpg"
       },
       {
-        name: "Sarah Johnson",
-        role: "Python Specialist",
+        name: "YongSy Din",
+        role: "Email Configration Specialist",
         imageUrl: "/assets/images/member3.jpg"
       }
     ],
@@ -154,29 +154,24 @@ export const projectsData = [
     duration: "Jan 12 - May 2, 2025",
     tags: ["TypeScript", "OOP", "JavaScript", "UML"],
     liveUrl: "https://github.com/vandaleng/movie-system",
-    githubUrl: "https://github.com/vandaleng/movie-system",
+    githubUrl: "https://github.com/Seavmey-Yem/MovieBookingSystem-A3",
     imageUrl: "/assets/images/movie-system.png",
     teamMembers: [
       {
-        name: "Vandal Eng",
-        role: "Full Stack Developer",
+        name: "Vandal Leng",
+        role: "Backend Developer",
         imageUrl: "/assets/images/member1.jpg"
       },
       {
-        name: "Mike Chen",
-        role: "Frontend Developer",
+        name: "Seavmey Yem",
+        role: "Team Leader",
         imageUrl: "/assets/images/member4.jpg"
       },
       {
-        name: "Lisa Wang",
-        role: "UI/UX Designer",
+        name: "Heng Horth",
+        role: "Backend Developer",
         imageUrl: "/assets/images/member5.jpg"
       },
-      {
-        name: "David Brown",
-        role: "System Architect",
-        imageUrl: "/assets/images/member6.jpg"
-      }
     ],
     tools: [
       { name: "TypeScript", icon: "fab fa-js" },
@@ -191,7 +186,7 @@ export const projectsData = [
     duration: "Jan 12 - May 2, 2025",
     tags: ["PHP", "MVC", "MySQL", "E-commerce"],
     liveUrl: "https://github.com/vandaleng/management-system",
-    githubUrl: "https://github.com/vandaleng/management-system",
+    githubUrl: "https://github.com/Charyna-chab/VC1-Group8-DrinksManagementSystem",
     imageUrl: "/assets/images/management-system.png",
     teamMembers: [
       {
@@ -200,22 +195,22 @@ export const projectsData = [
         imageUrl: "/assets/images/member1.jpg"
       },
       {
-        name: "Emma Davis",
-        role: "Database Administrator",
+        name: "Sophy EM ",
+        role: "Supporting issues Developer",
         imageUrl: "/assets/images/member7.jpg"
       },
       {
-        name: "Alex Rodriguez",
+        name: "Neath",
         role: "PHP Developer",
         imageUrl: "/assets/images/member8.jpg"
       },
       {
-        name: "Sophie Martin",
-        role: "Project Manager",
+        name: "Chab Charyna",
+        role: "Team Leader",
         imageUrl: "/assets/images/member9.jpg"
       },
       {
-        name: "Tom Wilson",
+        name: "BOPHA KHAT",
         role: "QA Tester",
         imageUrl: "/assets/images/member10.jpg"
       }
@@ -234,7 +229,7 @@ export const projectsData = [
     duration: "July 1 - Aug 30, 2025",
     tags: ["Laravel", "React", "MySQL", "API", "Backend"],
     liveUrl: "https://github.com/vandaleng/ecommerce-farmer",
-    githubUrl: "https://github.com/vandaleng/ecommerce-farmer",
+    githubUrl: "https://github.com/VandaLeng/VC2-FamerZone",
     imageUrl: "/assets/images/ecommerce-farmer.png",
     teamMembers: [
       {
@@ -243,18 +238,23 @@ export const projectsData = [
         imageUrl: "/assets/images/member1.jpg"
       },
       {
-        name: "Rachel Green",
-        role: "Frontend Developer",
+        name: "Bunny Chor",
+        role: "QA Tester",
         imageUrl: "/assets/images/member11.jpg"
       },
       {
-        name: "James Anderson",
-        role: "Laravel Specialist",
+        name: "LYNAK KHAT",
+        role: "Team Leader",
         imageUrl: "/assets/images/member12.jpg"
       },
       {
-        name: "Olivia Taylor",
-        role: "React Developer",
+        name: "Sokha SIM",
+        role: "Git Control",
+        imageUrl: "/assets/images/member13.jpg"
+      },
+       {
+        name: "Loeun Sreyneang",
+        role: "Git Control",
         imageUrl: "/assets/images/member13.jpg"
       }
     ],
