@@ -215,16 +215,6 @@ const skillsData = [
     details: "Django, Flask, data analysis, automation, scripting, REST APIs",
   },
   {
-    name: "MongoDB",
-    description: "NoSQL database",
-    iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-    colorRgb: "16, 185, 129",
-    category: "Backend",
-    level: "Intermediate",
-    experience: "2+ years",
-    details: "Document modeling, aggregation pipeline, indexing, replication, sharding",
-  },
-  {
     name: "Docker",
     description: "Containerization",
     iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
@@ -233,16 +223,6 @@ const skillsData = [
     level: "Intermediate",
     experience: "2+ years",
     details: "Containerization, Docker Compose, multi-stage builds, volumes, networking",
-  },
-  {
-    name: "Redis",
-    description: "In-memory data",
-    iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-    colorRgb: "239, 68, 68",
-    category: "Backend",
-    level: "Intermediate",
-    experience: "2+ years",
-    details: "Caching strategies, pub/sub, data structures, session management, performance optimization",
   },
 ]
 
