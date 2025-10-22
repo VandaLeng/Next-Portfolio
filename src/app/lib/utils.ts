@@ -129,17 +129,17 @@ export const projectsData = [
       {
         name: "Vanda leng",
         role: "Developer",
-        imageUrl: "/assets/images/member1.jpg"
+        imageUrl: "/Vanda_developer.png"
       },
       {
         name: "Leader Din",
         role: "Team Leader",
-        imageUrl: "/assets/images/member2.jpg"
+        imageUrl: "/Leader.jpg"
       },
       {
         name: "YongSy Din",
         role: "Email Configration Specialist",
-        imageUrl: "/assets/images/member3.jpg"
+        imageUrl: "/"
       }
     ],
     tools: [
