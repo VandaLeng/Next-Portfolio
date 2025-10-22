@@ -319,16 +319,6 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
             </form>
           </div>
         </div>
-
-        {/* Footer */}
-        <div className={`mt-16 pt-6 border-t text-center ${isDarkMode ? "border-blue-500/20" : "border-red-300/30"}`}>
-          <p className={`text-xs ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>
-            © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
-          </p>
-          <p className={`text-xs mt-1 ${isDarkMode ? "text-gray-500" : "text-gray-600"}`}>
-            Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
-          </p>
-        </div>
       </div>
     </section>
   )
