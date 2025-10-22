@@ -235,7 +235,7 @@ export const projectsData = [
       {
         name: "Vandal Eng",
         role: "Backend Developer",
-        imageUrl: "/assets/images/member1.jpg"
+        imageUrl: "/vanda_developer.png"
       },
       {
         name: "Bunny Chor",
@@ -250,7 +250,7 @@ export const projectsData = [
       {
         name: "Sokha SIM",
         role: "Git Control",
-        imageUrl: "/assets/images/member13.jpg"
+        imageUrl: "/sokha.jpg"
       },
        {
         name: "Loeun Sreyneang",
