@@ -52,11 +52,8 @@ export default function ProjectsSection({ isDarkMode }: ProjectsSectionProps) {
         </div>
 
         <div className="mt-16 text-center">
-          <p className={`mb-5 text-base ${isDarkMode ? "text-gray-400" : "text-gray-700"}`}>
-            Want to see more of my work?
-          </p>
           <a
-            href="https://github.com/vandaleng"
+            href="https://github.com/VandaLeng"
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex items-center gap-2 px-7 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 group text-sm md:text-base ${
