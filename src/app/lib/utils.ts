@@ -197,17 +197,17 @@ export const projectsData = [
       {
         name: "Sophy EM ",
         role: "Supporting issues Developer",
-        imageUrl: "/assets/images/member7.jpg"
+        imageUrl: "/SOphy.jpg"
       },
       {
         name: "Neath",
         role: "PHP Developer",
-        imageUrl: "/assets/images/member8.jpg"
+        imageUrl: "/neath.jpg"
       },
       {
         name: "Chab Charyna",
         role: "Team Leader",
-        imageUrl: "/assets/images/member9.jpg"
+        imageUrl: "/rina.jpg"
       },
       {
         name: "BOPHA KHAT",
