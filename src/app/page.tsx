@@ -86,7 +86,7 @@ export default function HomePage() {
       className={`min-h-screen transition-colors duration-500 ${
         darkMode
           ? "bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white"
-          : "bg-gradient-to-br from-red-50 via-white to-red-100 text-gray-900"
+          : "bg-gradient-to-br"
       }`}
     >
       <CodingBackground isDarkMode={darkMode} />

@@ -160,7 +160,7 @@ export const projectsData = [
       {
         name: "Vandal Leng",
         role: "Backend Developer",
-        imageUrl: "/assets/images/member1.jpg"
+        imageUrl: "/vanda_developer.png"
       },
       {
         name: "Seavmey Yem",
