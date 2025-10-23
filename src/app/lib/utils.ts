@@ -139,7 +139,7 @@ export const projectsData = [
       {
         name: "YongSy Din",
         role: "Email Configration Specialist",
-        imageUrl: "/"
+        imageUrl: "/yongsy.jpg"
       }
     ],
     tools: [
@@ -165,12 +165,12 @@ export const projectsData = [
       {
         name: "Seavmey Yem",
         role: "Team Leader",
-        imageUrl: "/assets/images/member4.jpg"
+        imageUrl: "/seav mey.jpg"
       },
       {
         name: "Heng Horth",
         role: "Backend Developer",
-        imageUrl: "/assets/images/member5.jpg"
+        imageUrl: "/heng horth.jpg"
       },
     ],
     tools: [
@@ -192,7 +192,7 @@ export const projectsData = [
       {
         name: "Vandal Eng",
         role: "Backend Developer",
-        imageUrl: "/assets/images/member1.jpg"
+        imageUrl: "/Vanda_developer.png"
       },
       {
         name: "Sophy EM ",
@@ -240,12 +240,12 @@ export const projectsData = [
       {
         name: "Bunny Chor",
         role: "QA Tester",
-        imageUrl: "/assets/images/member11.jpg"
+        imageUrl: "/bunny.jpg"
       },
       {
         name: "LYNAK KHAT",
         role: "Team Leader",
-        imageUrl: "/assets/images/member12.jpg"
+        imageUrl: "/lynak.jpg"
       },
       {
         name: "Sokha SIM",
@@ -255,7 +255,7 @@ export const projectsData = [
        {
         name: "Loeun Sreyneang",
         role: "Git Control",
-        imageUrl: "/assets/images/member13.jpg"
+        imageUrl: "/sreyneang.jpg"
       }
     ],
     tools: [
