@@ -124,7 +124,7 @@ export const projectsData = [
     tags: ["Python", "Automation", "Email", "Algorithm"],
     liveUrl: "https://github.com/vandaleng/email-automation",
     githubUrl: "https://github.com/Leader-Din/algorithm_project",
-    imageUrl: "/assets/images/email-automation.png",
+    imageUrl: "/email automation.jpg",
     teamMembers: [
       {
         name: "Vanda leng",
@@ -155,7 +155,7 @@ export const projectsData = [
     tags: ["TypeScript", "OOP", "JavaScript", "UML"],
     liveUrl: "https://github.com/vandaleng/movie-system",
     githubUrl: "https://github.com/Seavmey-Yem/MovieBookingSystem-A3",
-    imageUrl: "/assets/images/movie-system.png",
+    imageUrl: "/Movei system.webp",
     teamMembers: [
       {
         name: "Vandal Leng",
@@ -187,7 +187,7 @@ export const projectsData = [
     tags: ["PHP", "MVC", "MySQL", "E-commerce"],
     liveUrl: "https://github.com/vandaleng/management-system",
     githubUrl: "https://github.com/Charyna-chab/VC1-Group8-DrinksManagementSystem",
-    imageUrl: "/assets/images/management-system.png",
+    imageUrl: "/eCommerce.png",
     teamMembers: [
       {
         name: "Vandal Eng",
@@ -230,7 +230,7 @@ export const projectsData = [
     tags: ["Laravel", "React", "MySQL", "API", "Backend"],
     liveUrl: "https://github.com/vandaleng/ecommerce-farmer",
     githubUrl: "https://github.com/VandaLeng/VC2-FamerZone",
-    imageUrl: "/assets/images/ecommerce-farmer.png",
+    imageUrl: "/farmerzone.png",
     teamMembers: [
       {
         name: "Vandal Eng",
