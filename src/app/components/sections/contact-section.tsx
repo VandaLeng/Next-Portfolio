@@ -6,7 +6,7 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { personalInfo } from "@/app/lib/utils"
-// Import the configuration file
+// Assuming telegramConfig.ts is in this path
 import { BOT_TOKEN, CHAT_ID } from "@/app/lib/telegramConfig" 
 
 interface ContactSectionProps {
@@ -18,6 +18,8 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    // ⭐️ NEW: Added phone field to state
+    phone: "", 
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -43,10 +45,8 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
   }, [])
 
   const sendToTelegram = async (message: string) => {
-    // BOT_TOKEN and CHAT_ID are now imported from telegramConfig.ts
     const telegramApiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`
     
-    // Using a POST request to send data securely
     const response = await fetch(telegramApiUrl, {
       method: 'POST',
       headers: {
@@ -71,16 +71,19 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
+    // ⭐️ UPDATED: Included phone number in the message text
     const messageText = 
       `*New Contact Form Submission*\n\n` +
       `👤 *Name:* ${formData.name}\n` +
-      `📧 *Email:* ${formData.email}\n\n` +
+      `📧 *Email:* ${formData.email}\n` +
+      `📞 *Phone:* ${formData.phone || 'N/A'}\n\n` + // Shows N/A if left blank
       `💬 *Message:*\n${formData.message}`
 
     try {
         await sendToTelegram(messageText)
         setSubmitStatus("success")
-        setFormData({ name: "", email: "", message: "" }) // Clear form on success
+        // ⭐️ UPDATED: Clear phone field on success
+        setFormData({ name: "", email: "", phone: "", message: "" }) 
     } catch (error) {
         console.error("Failed to send message to Telegram:", error)
         setSubmitStatus("error")
@@ -113,7 +116,7 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Contact Information */}
+          {/* Contact Information (No change here) */}
           <div className="space-y-4">
             {/* Email Card */}
             <div
@@ -274,6 +277,30 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
                   }`}
                 />
               </div>
+              
+              {/* 📞 NEW: Phone Input Field */}
+              <div>
+                <label
+                  htmlFor="phone"
+                  className={`block text-xs font-medium mb-1.5 ${isDarkMode ? "text-gray-300" : "text-gray-900"}`}
+                >
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel" // Use type="tel" for better mobile keyboard experience
+                  placeholder="(Optional) Your phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  // Not required, as requested implicitly by making it optional
+                  className={`w-full px-3 py-2 text-sm rounded-lg border focus:outline-none focus:ring-2 transition-colors ${
+                    isDarkMode
+                      ? "bg-slate-900/50 border-blue-500/30 focus:border-blue-500 focus:ring-blue-500/20 text-white placeholder-gray-500"
+                      : "bg-white border-red-300 focus:border-red-500 focus:ring-red-500/20 text-gray-900 placeholder-gray-400"
+                  }`}
+                />
+              </div>
 
               {/* Message Textarea */}
               <div>
@@ -299,7 +326,7 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
                 />
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button (No change here) */}
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -344,7 +371,7 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
                 )}
               </button>
 
-              {/* Status Messages */}
+              {/* Status Messages (No change here) */}
               {submitStatus === "success" && (
                 <div
                   className={`p-3 rounded-lg border text-center text-xs ${
