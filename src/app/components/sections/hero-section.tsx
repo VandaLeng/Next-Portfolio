@@ -7,9 +7,6 @@ const personalInfo = {
   // The titles will be managed by the dynamic text effect below
 }
 
-// --- Role Definitions for the Typewriter Effect ---
-const ROLES = ["Software Developer", "Web Designer", "Web Developer", "Creative Technologist"]
-
 // Configuration for the typewriter speed
 const TYPING_SPEED = 100 // ms per character
 const DELETING_SPEED = 50 // ms per character when deleting
@@ -48,47 +45,6 @@ export default function HeroSection({ isDarkMode }: HeroSectionProps) {
 
     return () => observer.disconnect()
   }, [])
-
-  // 2. Effect for the Looping Typewriter Animation
-  useEffect(() => {
-    let timeout: NodeJS.Timeout
-    const currentWord = ROLES[currentRoleIndex]
-
-    const handleTyping = () => {
-      if (isDeleting) {
-        // --- DELETING PHASE ---
-        setDisplayedText((prev) => prev.substring(0, prev.length - 1))
-
-        // Check if the word is completely deleted
-        if (displayedText.length === 1) {
-          setIsDeleting(false)
-          // Move to the next word index (looping back to 0)
-          setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % ROLES.length)
-        }
-
-        // Schedule the next deletion
-        timeout = setTimeout(handleTyping, DELETING_SPEED)
-      } else {
-        // --- TYPING PHASE ---
-        setDisplayedText((prev) => currentWord.substring(0, prev.length + 1))
-
-        // Check if the word is fully typed
-        if (displayedText.length === currentWord.length) {
-          // Pause before starting the deletion process
-          timeout = setTimeout(() => setIsDeleting(true), PAUSE_TIME)
-        } else {
-          // Schedule the next character typing
-          timeout = setTimeout(handleTyping, TYPING_SPEED)
-        }
-      }
-    }
-
-    // Start the typing process
-    timeout = setTimeout(handleTyping, isDeleting ? DELETING_SPEED : TYPING_SPEED)
-
-    // Cleanup: Clear the timeout on component unmount/re-render
-    return () => clearTimeout(timeout)
-  }, [currentRoleIndex, isDeleting, displayedText]) // Dependencies for re-running the effect
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
@@ -134,21 +90,6 @@ export default function HeroSection({ isDarkMode }: HeroSectionProps) {
             {personalInfo.name}
           </span>
         </h1>
-
-        {/* Subtitle with Typewriter Effect */}
-        <p
-          className={`text-2xl md:text-3xl mb-3 font-semibold ${
-            isDarkMode ? "text-cyan-300 drop-shadow-[0_8px_16px_rgba(0,0,0,0.65)]" : "text-red-600"
-          }`}
-        >
-          {/* Display the dynamically typed text */}
-          {displayedText}
-
-          {/* Cursor: Use bg-current to match the text color, animate-blink for the effect */}
-          <span className={`inline-block w-1 h-8 ml-1 ${isDarkMode ? "bg-cyan-300" : "bg-red-600"} animate-blink`}>
-            |
-          </span>
-        </p>
 
         {/* Description (Set to white for both modes) */}
         <p
