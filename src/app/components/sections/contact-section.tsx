@@ -1,9 +1,13 @@
+// ContactSection.tsx
+
 "use client"
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { personalInfo } from "@/app/lib/utils"
+// Import the configuration file
+import { BOT_TOKEN, CHAT_ID } from "@/app/lib/telegramConfig" 
 
 interface ContactSectionProps {
   isDarkMode: boolean
@@ -38,17 +42,53 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
     return () => observer.disconnect()
   }, [])
 
+  const sendToTelegram = async (message: string) => {
+    // BOT_TOKEN and CHAT_ID are now imported from telegramConfig.ts
+    const telegramApiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`
+    
+    // Using a POST request to send data securely
+    const response = await fetch(telegramApiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: 'Markdown', // Use Markdown for formatting
+      }),
+    })
+
+    if (!response.ok) {
+        throw new Error(`Telegram API failed with status: ${response.status}`)
+    }
+    
+    return response.json()
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus("idle")
 
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    const messageText = 
+      `*New Contact Form Submission*\n\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📧 *Email:* ${formData.email}\n\n` +
+      `💬 *Message:*\n${formData.message}`
 
-    setIsSubmitting(false)
-    setSubmitStatus("success")
-    setFormData({ name: "", email: "", message: "" })
-
-    setTimeout(() => setSubmitStatus("idle"), 5000)
+    try {
+        await sendToTelegram(messageText)
+        setSubmitStatus("success")
+        setFormData({ name: "", email: "", message: "" }) // Clear form on success
+    } catch (error) {
+        console.error("Failed to send message to Telegram:", error)
+        setSubmitStatus("error")
+    } finally {
+        setIsSubmitting(false)
+        // Clear status message after 5 seconds
+        setTimeout(() => setSubmitStatus("idle"), 5000)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -304,7 +344,7 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
                 )}
               </button>
 
-              {/* Success Message */}
+              {/* Status Messages */}
               {submitStatus === "success" && (
                 <div
                   className={`p-3 rounded-lg border text-center text-xs ${
@@ -314,6 +354,17 @@ export default function ContactSection({ isDarkMode }: ContactSectionProps) {
                   }`}
                 >
                   Thank you! I'll get back to you as soon as possible.
+                </div>
+              )}
+              {submitStatus === "error" && (
+                <div
+                  className={`p-3 rounded-lg border text-center text-xs ${
+                    isDarkMode
+                      ? "bg-red-500/20 border-red-500/50 text-red-300"
+                      : "bg-red-100 border-red-300 text-red-800"
+                  }`}
+                >
+                  Error sending message. Please check your token and chat ID in **telegramConfig.ts** and try again.
                 </div>
               )}
             </form>
